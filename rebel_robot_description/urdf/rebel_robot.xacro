@@ -1,0 +1,1040 @@
+<?xml version="1.0" ?>
+<robot name="rebel_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find rebel_robot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find rebel_robot_description)/urdf/rebel_robot.trans" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.006886220582000221 4.5884165073640187e-07 0.12200722813075085" rpy="0 0 0"/>
+    <mass value="40.08857907067585"/>
+    <inertia ixx="0.95103" iyy="1.642137" izz="2.408914" ixy="-0.000378" iyz="-0.000123" ixz="0.010784"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque170178196"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_1">
+  <inertial>
+    <origin xyz="-0.008294099570319567 -3.8749192144224396e-17 0.05020114222279101" rpy="0 0 0"/>
+    <mass value="1.1515616542314224"/>
+    <inertia ixx="0.000489" iyy="0.000861" izz="0.000987" ixy="-0.0" iyz="-0.0" ixz="-0.000148"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.141" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.141" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/lidar_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="imu_1">
+  <inertial>
+    <origin xyz="-0.014988122978063734 9.133494040341156e-05 0.000862164665477741" rpy="0 0 0"/>
+    <mass value="0.004997129426507204"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.164479 -0.0 -0.108" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/imu_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque170178196"/>
+  </visual>
+  <collision>
+    <origin xyz="0.164479 -0.0 -0.108" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/imu_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="jetson_1">
+  <inertial>
+    <origin xyz="-0.016382812378843536 -0.00041179155366838686 0.009224709951320367" rpy="0 0 0"/>
+    <mass value="0.3773808086312594"/>
+    <inertia ixx="0.000236" iyy="0.000221" izz="0.000415" ixy="6e-06" iyz="4e-06" ixz="1.9e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.230479 -0.0 -0.108" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/jetson_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque252525"/>
+  </visual>
+  <collision>
+    <origin xyz="0.230479 -0.0 -0.108" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/jetson_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="side_plate_1">
+  <inertial>
+    <origin xyz="-0.32465388940217904 3.705431288811196e-16 0.0557555749895494" rpy="0 0 0"/>
+    <mass value="8.524409075890466"/>
+    <inertia ixx="0.316325" iyy="0.561434" izz="0.858194" ixy="-0.0" iyz="0.0" ixz="-2.3e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.32 -0.0 -0.071" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/side_plate_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque170178196"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.32 -0.0 -0.071" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/side_plate_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="zed_mini_1">
+  <inertial>
+    <origin xyz="0.009640809169695286 -0.001181463922588793 3.0931017364205227e-06" rpy="0 0 0"/>
+    <mass value="0.44647457908999877"/>
+    <inertia ixx="0.000586" iyy="4.3e-05" izz="0.000583" ixy="6e-06" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.319 -0.0 -0.123162" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/zed_mini_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque191191191"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.319 -0.0 -0.123162" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/zed_mini_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="top_cover_1">
+  <inertial>
+    <origin xyz="-0.1700000028918054 0.17149999713348726 0.003000000000000058" rpy="0 0 0"/>
+    <mass value="5.769750000000013"/>
+    <inertia ixx="0.058917" iyy="0.058917" izz="0.117799" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.1695 0.171 -0.2165" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/top_cover_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque170178196"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.1695 0.171 -0.2165" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/top_cover_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="arm_base_1">
+  <inertial>
+    <origin xyz="-3.2186281977326925e-09 -2.7977190926293377e-05 0.03084400827140535" rpy="0 0 0"/>
+    <mass value="1.698390431386343"/>
+    <inertia ixx="0.003891" iyy="0.003883" izz="0.005405" ixy="0.0" iyz="3e-06" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0005 -0.0005 -0.2225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/arm_base_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="plastic_glossy_black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0005 -0.0005 -0.2225" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/arm_base_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="logo1_1">
+  <inertial>
+    <origin xyz="-0.001916142378796174 0.0010148209098310157 -0.0022601360351853506" rpy="0 0 0"/>
+    <mass value="0.2850094860122326"/>
+    <inertia ixx="0.00012" iyy="0.000641" izz="0.000525" ixy="-1e-06" iyz="-1e-06" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.001198 0.242 -0.125369" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/logo1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque160160160"/>
+  </visual>
+  <collision>
+    <origin xyz="0.001198 0.242 -0.125369" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/logo1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="logo2_1">
+  <inertial>
+    <origin xyz="0.0019155785819858048 -0.0010148209098299055 -0.0022601360351848787" rpy="0 0 0"/>
+    <mass value="0.2850094860122332"/>
+    <inertia ixx="0.00012" iyy="0.000641" izz="0.000525" ixy="-1e-06" iyz="1e-06" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.001198 -0.242 -0.125369" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/logo2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque160160160"/>
+  </visual>
+  <collision>
+    <origin xyz="0.001198 -0.242 -0.125369" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/logo2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_front_wheel_1">
+  <inertial>
+    <origin xyz="2.3498597989668468e-07 -0.03137920521938581 -2.0518912093037134e-07" rpy="0 0 0"/>
+    <mass value="0.94911119349937"/>
+    <inertia ixx="0.001555" iyy="0.002702" izz="0.001555" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.19 0.1805 -0.08" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/right_front_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque170178196"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.19 0.1805 -0.08" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/right_front_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_back_wheel_1">
+  <inertial>
+    <origin xyz="2.3498597973015123e-07 -0.03137920521938581 -2.0518912122180488e-07" rpy="0 0 0"/>
+    <mass value="0.9491111934993678"/>
+    <inertia ixx="0.001555" iyy="0.002702" izz="0.001555" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.19 0.1805 -0.08" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/right_back_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque170178196"/>
+  </visual>
+  <collision>
+    <origin xyz="0.19 0.1805 -0.08" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/right_back_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_front_wheel_1">
+  <inertial>
+    <origin xyz="-9.543055706773274e-09 0.03137916494591725 1.4559213505627167e-07" rpy="0 0 0"/>
+    <mass value="0.9491110270115712"/>
+    <inertia ixx="0.001555" iyy="0.002702" izz="0.001555" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.19 -0.1805 -0.08" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/left_front_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque170178196"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.19 -0.1805 -0.08" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/left_front_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_back_wheel_1">
+  <inertial>
+    <origin xyz="-9.543055595750971e-09 0.03137916494591733 1.4559213526443848e-07" rpy="0 0 0"/>
+    <mass value="0.9491110270115715"/>
+    <inertia ixx="0.001555" iyy="0.002702" izz="0.001555" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.19 -0.1805 -0.08" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/left_back_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque170178196"/>
+  </visual>
+  <collision>
+    <origin xyz="0.19 -0.1805 -0.08" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/left_back_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="table1_1">
+  <inertial>
+    <origin xyz="-0.043675727998702854 0.009682570740948294 0.057093051316082055" rpy="0 0 0"/>
+    <mass value="5.6769591892501525"/>
+    <inertia ixx="0.022954" iyy="0.026782" izz="0.025408" ixy="-0.001019" iyz="0.001506" ixz="0.007702"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0005 -1e-05 -0.35101" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/table1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque170178196"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0005 -1e-05 -0.35101" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/table1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor1_1">
+  <inertial>
+    <origin xyz="-4.080333695813225e-09 -2.2141500281555593e-05 0.0072730799558731185" rpy="0 0 0"/>
+    <mass value="0.1379411175496854"/>
+    <inertia ixx="0.000108" iyy="0.000108" izz="3.5e-05" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0005 -0.07101 -0.388528" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/motor1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque170178196"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0005 -0.07101 -0.388528" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/motor1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pulley1_1">
+  <inertial>
+    <origin xyz="-2.8835433818269127e-09 8.781915900043196e-09 -0.01770565809222352" rpy="0 0 0"/>
+    <mass value="0.3005629451424799"/>
+    <inertia ixx="0.000134" iyy="0.000134" izz="0.000215" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0005 -1e-05 -0.35101" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/pulley1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0005 -1e-05 -0.35101" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/pulley1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pulley2_1">
+  <inertial>
+    <origin xyz="1.5386083196005306e-05 -1.5707767671402362e-05 -0.0069726953160264005" rpy="0 0 0"/>
+    <mass value="0.04173686481696303"/>
+    <inertia ixx="5e-06" iyy="5e-06" izz="5e-06" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.0005 -0.07101 -0.337578" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/pulley2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0.0005 -0.07101 -0.337578" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/pulley2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor2_1">
+  <inertial>
+    <origin xyz="0.08099577052377087 4.167235011087286e-05 -3.9214047103386385e-06" rpy="0 0 0"/>
+    <mass value="4.058064438692847"/>
+    <inertia ixx="0.00217" iyy="0.00951" izz="0.00951" ixy="-4e-06" iyz="-0.0" ixz="-2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.097684 4e-05 -0.433528" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/motor2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque170178196"/>
+  </visual>
+  <collision>
+    <origin xyz="0.097684 4e-05 -0.433528" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/motor2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pulley3_1">
+  <inertial>
+    <origin xyz="-0.009973000073366947 -2.0387830485680977e-05 -1.5377606265853938e-05" rpy="0 0 0"/>
+    <mass value="0.04173686481696303"/>
+    <inertia ixx="5e-06" iyy="5e-06" izz="5e-06" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.114184 4.9e-05 -0.433528" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/pulley3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0.114184 4.9e-05 -0.433528" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/pulley3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tbone_1">
+  <inertial>
+    <origin xyz="0.08310597343468577 9.931869042190819e-05 0.018308164478474054" rpy="0 0 0"/>
+    <mass value="0.528063504098174"/>
+    <inertia ixx="0.000776" iyy="0.000919" izz="0.000561" ixy="-0.0" iyz="1e-06" ixz="-3.5e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.08636 -4e-05 -0.513528" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/tbone_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="plastic_glossy_black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.08636 -4e-05 -0.513528" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/tbone_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pulley4_1">
+  <inertial>
+    <origin xyz="-0.01770603488977192 -8.71229545634242e-06 1.1648428221988638e-08" rpy="0 0 0"/>
+    <mass value="0.3005629451424798"/>
+    <inertia ixx="0.000215" iyy="0.000134" izz="0.000134" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.102529 -3.1e-05 -0.513528" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/pulley4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0.102529 -3.1e-05 -0.513528" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/pulley4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="table2_1">
+  <inertial>
+    <origin xyz="-0.04528218059069518 -4.7009555911312985e-05 0.07196813515110556" rpy="0 0 0"/>
+    <mass value="0.8139801161620952"/>
+    <inertia ixx="0.006064" iyy="0.006763" izz="0.001302" ixy="-1e-06" iyz="1e-06" ixz="0.001417"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.00036 -8.4e-05 -0.621071" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/table2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="aluminum_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0.00036 -8.4e-05 -0.621071" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/table2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="table3_1">
+  <inertial>
+    <origin xyz="0.05763723473315725 -0.03519983559106536 0.004797433761611791" rpy="0 0 0"/>
+    <mass value="4.850211752442577"/>
+    <inertia ixx="0.022253" iyy="0.005674" izz="0.023697" ixy="0.001122" iyz="-0.001786" ixz="-0.000224"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.06536 -1.7e-05 -0.851231" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/table3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque170178196"/>
+  </visual>
+  <collision>
+    <origin xyz="0.06536 -1.7e-05 -0.851231" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/table3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="table4_1">
+  <inertial>
+    <origin xyz="-0.040514777464279464 -0.03311455629250096 -0.00041048738887927705" rpy="0 0 0"/>
+    <mass value="0.7037950581891603"/>
+    <inertia ixx="0.001085" iyy="0.001026" izz="0.001677" ixy="-0.000482" iyz="2e-06" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.000179 0.173916 -0.851231" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/table4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque170178196"/>
+  </visual>
+  <collision>
+    <origin xyz="0.000179 0.173916 -0.851231" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/table4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="gripper_1">
+  <inertial>
+    <origin xyz="0.02099875234634825 3.94250476813407e-05 -0.046976171764992136" rpy="0 0 0"/>
+    <mass value="1.0173893106974143"/>
+    <inertia ixx="0.001609" iyy="0.001884" izz="0.000811" ixy="-0.0" iyz="1e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.036089 0.260453 -0.851731" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/gripper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque170178196"/>
+  </visual>
+  <collision>
+    <origin xyz="0.036089 0.260453 -0.851731" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/gripper_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor3_1">
+  <inertial>
+    <origin xyz="0.04527344012331709 4.653137619143468e-05 2.212748199847958e-05" rpy="0 0 0"/>
+    <mass value="0.13794111754968524"/>
+    <inertia ixx="3.5e-05" iyy="0.000108" izz="0.000108" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.06536 -1.7e-05 -0.676071" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/motor3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque170178196"/>
+  </visual>
+  <collision>
+    <origin xyz="0.06536 -1.7e-05 -0.676071" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/motor3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor4_1">
+  <inertial>
+    <origin xyz="-4.750877679079822e-05 0.04527305525197531 0.05002238934782777" rpy="0 0 0"/>
+    <mass value="0.13794111754968544"/>
+    <inertia ixx="0.000108" iyy="3.5e-05" izz="0.000108" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.000409 -0.048084 -0.851231" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/motor4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque170178196"/>
+  </visual>
+  <collision>
+    <origin xyz="0.000409 -0.048084 -0.851231" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/motor4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor5_1">
+  <inertial>
+    <origin xyz="0.04527305440845857 4.681742985340742e-05 2.239878299903353e-05" rpy="0 0 0"/>
+    <mass value="0.13794111754968524"/>
+    <inertia ixx="3.5e-05" iyy="0.000108" izz="0.000108" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.061141 0.210479 -0.851731" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/motor5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque170178196"/>
+  </visual>
+  <collision>
+    <origin xyz="0.061141 0.210479 -0.851731" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/motor5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pulley5_1">
+  <inertial>
+    <origin xyz="-0.017705257488263126 -1.8338748477911167e-05 -2.3858233832996234e-08" rpy="0 0 0"/>
+    <mass value="0.3005629451424799"/>
+    <inertia ixx="0.000215" iyy="0.000134" izz="0.000134" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.07736 -4e-06 -0.676071" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/pulley5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0.07736 -4e-06 -0.676071" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/pulley5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pulley6_1">
+  <inertial>
+    <origin xyz="-0.01770525748815001 -1.8338975380212558e-05 2.378848904527331e-07" rpy="0 0 0"/>
+    <mass value="0.30056294514247966"/>
+    <inertia ixx="0.000215" iyy="0.000134" izz="0.000134" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.07736 -4e-06 -0.851231" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/pulley6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0.07736 -4e-06 -0.851231" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/pulley6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pulley7_1">
+  <inertial>
+    <origin xyz="1.836134787563926e-05 -0.01770564229380644 2.3790902103915101e-07" rpy="0 0 0"/>
+    <mass value="0.30056294514247994"/>
+    <inertia ixx="0.000134" iyy="0.000215" izz="0.000134" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.000397 -0.036084 -0.851231" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/pulley7_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0.000397 -0.036084 -0.851231" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/pulley7_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pulley8_1">
+  <inertial>
+    <origin xyz="2.5663807830023295e-05 -0.009972661568160929 1.5955511894705232e-05" rpy="0 0 0"/>
+    <mass value="0.04173686481696304"/>
+    <inertia ixx="5e-06" iyy="5e-06" izz="5e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.000385 -0.024584 -0.901231" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/pulley8_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0.000385 -0.024584 -0.901231" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/pulley8_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pulley9_1">
+  <inertial>
+    <origin xyz="-0.002582298441231423 -0.025002321193085986 4.309721045037129e-06" rpy="0 0 0"/>
+    <mass value="0.3480567097941357"/>
+    <inertia ixx="0.000277" iyy="4.9e-05" izz="0.000266" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.084641 0.210504 -0.851731" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/pulley9_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="steel_satin"/>
+  </visual>
+  <collision>
+    <origin xyz="0.084641 0.210504 -0.851731" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/pulley9_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_mount_1">
+  <inertial>
+    <origin xyz="-0.015820388993654136 -0.01701288437896087 -0.02376116125320804" rpy="0 0 0"/>
+    <mass value="0.020039297863827656"/>
+    <inertia ixx="5e-06" iyy="7e-06" izz="1.1e-05" ixy="1e-06" iyz="-1e-06" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.00594 0.28841 -0.811981" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/camera_mount_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="plastic_matte_blue"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.00594 0.28841 -0.811981" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/camera_mount_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_1">
+  <inertial>
+    <origin xyz="-0.0014942730178329929 2.9592686517365685e-06 -0.009645295832344192" rpy="0 0 0"/>
+    <mass value="0.4361891516081196"/>
+    <inertia ixx="4.4e-05" iyy="0.000572" izz="0.000573" ixy="-1e-06" iyz="-0.0" ixz="-8e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.006565 0.312316 -0.78566" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque170178196"/>
+  </visual>
+  <collision>
+    <origin xyz="0.006565 0.312316 -0.78566" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="logo3_1">
+  <inertial>
+    <origin xyz="-0.000624336650088948 2.6509205857311313e-05 -0.000736825688262055" rpy="0 0 0"/>
+    <mass value="0.00987448421823634"/>
+    <inertia ixx="0.0" iyy="2e-06" izz="2e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.000342 0.034916 -0.532321" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/logo3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque160160160"/>
+  </visual>
+  <collision>
+    <origin xyz="0.000342 0.034916 -0.532321" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/logo3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="logo4_1">
+  <inertial>
+    <origin xyz="0.0006250602231795738 -2.6523506748130088e-05 -0.0007368255976533122" rpy="0 0 0"/>
+    <mass value="0.009874484218236716"/>
+    <inertia ixx="0.0" iyy="2e-06" izz="2e-06" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.000378 -0.035084 -0.532321" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/logo4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque160160160"/>
+  </visual>
+  <collision>
+    <origin xyz="0.000378 -0.035084 -0.532321" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find rebel_robot_description)/meshes/logo4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="lidar_joint" type="fixed">
+  <origin xyz="0.0 0.0 0.141" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="lidar_1"/>
+</joint>
+
+<joint name="imu_joint" type="fixed">
+  <origin xyz="-0.164479 0.0 0.108" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="imu_1"/>
+</joint>
+
+<joint name="jetson_joint" type="fixed">
+  <origin xyz="-0.230479 0.0 0.108" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="jetson_1"/>
+</joint>
+
+<joint name="side_plate_joint" type="fixed">
+  <origin xyz="0.32 0.0 0.071" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="side_plate_1"/>
+</joint>
+
+<joint name="zed_mini_joint" type="fixed">
+  <origin xyz="-0.001 0.0 0.052162" rpy="0 0 0"/>
+  <parent link="side_plate_1"/>
+  <child link="zed_mini_1"/>
+</joint>
+
+<joint name="top_cover_joint" type="fixed">
+  <origin xyz="0.1695 -0.171 0.2165" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="top_cover_1"/>
+</joint>
+
+<joint name="arm_base_joint" type="fixed">
+  <origin xyz="-0.17 0.1715 0.006" rpy="0 0 0"/>
+  <parent link="top_cover_1"/>
+  <child link="arm_base_1"/>
+</joint>
+
+<joint name="logo1_joint" type="fixed">
+  <origin xyz="-0.321198 -0.242 0.054369" rpy="0 0 0"/>
+  <parent link="side_plate_1"/>
+  <child link="logo1_1"/>
+</joint>
+
+<joint name="logo2_joint" type="fixed">
+  <origin xyz="-0.321198 0.242 0.054369" rpy="0 0 0"/>
+  <parent link="side_plate_1"/>
+  <child link="logo2_1"/>
+</joint>
+
+<joint name="right_front_joint" type="continuous">
+  <origin xyz="0.19 -0.1805 0.08" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_front_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="right_back_joint" type="continuous">
+  <origin xyz="-0.19 -0.1805 0.08" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="right_back_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="left_front_joint" type="continuous">
+  <origin xyz="0.19 0.1805 0.08" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_front_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="left_back_joint" type="continuous">
+  <origin xyz="-0.19 0.1805 0.08" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="left_back_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="arm_joint1" type="revolute">
+  <origin xyz="0.0 -0.00049 0.12851" rpy="0 0 0"/>
+  <parent link="arm_base_1"/>
+  <child link="table1_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <limit upper="3.141593" lower="-3.141593" effort="100" velocity="100"/>
+</joint>
+
+<joint name="motor1_joint" type="fixed">
+  <origin xyz="0.0 0.071 0.037518" rpy="0 0 0"/>
+  <parent link="table1_1"/>
+  <child link="motor1_1"/>
+</joint>
+
+<joint name="pulley1_joint" type="fixed">
+  <origin xyz="0.0 -0.00049 0.12851" rpy="0 0 0"/>
+  <parent link="arm_base_1"/>
+  <child link="pulley1_1"/>
+</joint>
+
+<joint name="pulley2_joint" type="fixed">
+  <origin xyz="0.0 0.0 -0.05095" rpy="0 0 0"/>
+  <parent link="motor1_1"/>
+  <child link="pulley2_1"/>
+</joint>
+
+<joint name="motor2_joint" type="fixed">
+  <origin xyz="-0.097184 -5e-05 0.082518" rpy="0 0 0"/>
+  <parent link="table1_1"/>
+  <child link="motor2_1"/>
+</joint>
+
+<joint name="pulley3_joint" type="fixed">
+  <origin xyz="-0.0165 -9e-06 0.0" rpy="0 0 0"/>
+  <parent link="motor2_1"/>
+  <child link="pulley3_1"/>
+</joint>
+
+<joint name="arm_joint2" type="revolute">
+  <origin xyz="-0.08586 3e-05 0.162518" rpy="0 0 0"/>
+  <parent link="table1_1"/>
+  <child link="tbone_1"/>
+  <axis xyz="1.0 0.000515 0.0"/>
+  <limit upper="1.22173" lower="-1.22173" effort="100" velocity="100"/>
+</joint>
+
+<joint name="pulley4_joint" type="fixed">
+  <origin xyz="-0.102029 2.1e-05 0.162518" rpy="0 0 0"/>
+  <parent link="table1_1"/>
+  <child link="pulley4_1"/>
+</joint>
+
+<joint name="table2_joint" type="fixed">
+  <origin xyz="0.086 4.4e-05 0.107543" rpy="0 0 0"/>
+  <parent link="tbone_1"/>
+  <child link="table2_1"/>
+</joint>
+
+<joint name="arm_joint3" type="revolute">
+  <origin xyz="-0.065 -6.7e-05 0.23016" rpy="0 0 0"/>
+  <parent link="table2_1"/>
+  <child link="table3_1"/>
+  <axis xyz="0.999999 0.001039 0.0"/>
+  <limit upper="0.785398" lower="-2.356194" effort="100" velocity="100"/>
+</joint>
+
+<joint name="arm_joint4" type="revolute">
+  <origin xyz="0.065181 -0.173933 0.0" rpy="0 0 0"/>
+  <parent link="table3_1"/>
+  <child link="table4_1"/>
+  <axis xyz="0.001039 -0.999999 -0.0"/>
+  <limit upper="0.785398" lower="-0.785398" effort="100" velocity="100"/>
+</joint>
+
+<joint name="arm_joint5" type="revolute">
+  <origin xyz="-0.03591 -0.086537 0.0005" rpy="0 0 0"/>
+  <parent link="table4_1"/>
+  <child link="gripper_1"/>
+  <axis xyz="-0.999999 -0.001039 -0.0"/>
+  <limit upper="3.141593" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="motor3_joint" type="fixed">
+  <origin xyz="-0.065 -6.7e-05 0.055" rpy="0 0 0"/>
+  <parent link="table2_1"/>
+  <child link="motor3_1"/>
+</joint>
+
+<joint name="motor4_joint" type="fixed">
+  <origin xyz="0.064951 0.048067 0.0" rpy="0 0 0"/>
+  <parent link="table3_1"/>
+  <child link="motor4_1"/>
+</joint>
+
+<joint name="motor5_joint" type="fixed">
+  <origin xyz="-0.060962 -0.036563 0.0005" rpy="0 0 0"/>
+  <parent link="table4_1"/>
+  <child link="motor5_1"/>
+</joint>
+
+<joint name="pulley5_joint" type="fixed">
+  <origin xyz="-0.077 -8e-05 0.055" rpy="0 0 0"/>
+  <parent link="table2_1"/>
+  <child link="pulley5_1"/>
+</joint>
+
+<joint name="pulley6_joint" type="fixed">
+  <origin xyz="-0.077 -8e-05 0.23016" rpy="0 0 0"/>
+  <parent link="table2_1"/>
+  <child link="pulley6_1"/>
+</joint>
+
+<joint name="pulley7_joint" type="fixed">
+  <origin xyz="0.064963 0.036067 0.0" rpy="0 0 0"/>
+  <parent link="table3_1"/>
+  <child link="pulley7_1"/>
+</joint>
+
+<joint name="pulley8_joint" type="fixed">
+  <origin xyz="2.4e-05 -0.0235 0.05" rpy="0 0 0"/>
+  <parent link="motor4_1"/>
+  <child link="pulley8_1"/>
+</joint>
+
+<joint name="pulley9_joint" type="fixed">
+  <origin xyz="-0.0235 -2.5e-05 0.0" rpy="0 0 0"/>
+  <parent link="motor5_1"/>
+  <child link="pulley9_1"/>
+</joint>
+
+<joint name="camera_mount_joint" type="fixed">
+  <origin xyz="0.042029 -0.027957 -0.03975" rpy="0 0 0"/>
+  <parent link="gripper_1"/>
+  <child link="camera_mount_1"/>
+</joint>
+
+<joint name="camera_joint" type="fixed">
+  <origin xyz="-0.012505 -0.023906 -0.026321" rpy="0 0 0"/>
+  <parent link="camera_mount_1"/>
+  <child link="camera_1"/>
+</joint>
+
+<joint name="logo3_joint" type="fixed">
+  <origin xyz="0.086018 -0.034956 0.018793" rpy="0 0 0"/>
+  <parent link="tbone_1"/>
+  <child link="logo3_1"/>
+</joint>
+
+<joint name="logo4_joint" type="fixed">
+  <origin xyz="0.085982 0.035044 0.018793" rpy="0 0 0"/>
+  <parent link="tbone_1"/>
+  <child link="logo4_1"/>
+</joint>
+
+</robot>

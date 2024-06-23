@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<robot name="rebel_robot" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<material name="silver_default">
+  <color rgba="0.700 0.700 0.700 1.000"/>
+</material>
+<material name="opaque170178196">
+  <color rgba="0.6666666666666666 0.6980392156862745 0.7686274509803922 1.0"/>
+</material>
+<material name="steel_satin">
+  <color rgba="0.6274509803921569 0.6274509803921569 0.6274509803921569 1.0"/>
+</material>
+<material name="plastic_glossy_black">
+  <color rgba="0.09803921568627451 0.09803921568627451 0.09803921568627451 1.0"/>
+</material>
+<material name="aluminum_satin">
+  <color rgba="0.9607843137254902 0.9607843137254902 0.9647058823529412 1.0"/>
+</material>
+<material name="opaque160160160">
+  <color rgba="0.6274509803921569 0.6274509803921569 0.6274509803921569 1.0"/>
+</material>
+<material name="plastic_matte_blue">
+  <color rgba="0.18823529411764706 0.23137254901960785 0.5882352941176471 1.0"/>
+</material>
+<material name="opaque252525">
+  <color rgba="0.09803921568627451 0.09803921568627451 0.09803921568627451 1.0"/>
+</material>
+<material name="opaque191191191">
+  <color rgba="0.7490196078431373 0.7490196078431373 0.7490196078431373 1.0"/>
+</material>
+
+</robot>
