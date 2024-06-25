@@ -3,6 +3,11 @@
 
 <xacro:include filename="$(find rebel_robot_description)/urdf/materials.xacro" />
 <xacro:include filename="$(find rebel_robot_description)/urdf/rebel_robot.trans" />
+<xacro:include filename="$(find rebel_robot_description)/urdf/rebel_robot.gazebo" />
+
+<xacro:arg name="sim_gazebo" default="false" />
+<xacro:arg name="sim_gz" default="false" />
+
 <link name="base_link">
   <inertial>
     <origin xyz="0.006886220582000221 4.5884165073640187e-07 0.12200722813075085" rpy="0 0 0"/>

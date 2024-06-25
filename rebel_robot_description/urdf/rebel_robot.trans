@@ -1,103 +1,80 @@
 <?xml version="1.0" ?>
 <robot name="rebel_robot" xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
-<transmission name="right_front_joint_tran">
-  <type>transmission_interface/SimpleTransmission</type>
-  <joint name="right_front_joint">
-    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-  </joint>
-  <actuator name="right_front_joint_actr">
-    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    <mechanicalReduction>1</mechanicalReduction>
-  </actuator>
-</transmission>
+  <ros2_control name="head_system" type="system">
 
-<transmission name="right_back_joint_tran">
-  <type>transmission_interface/SimpleTransmission</type>
-  <joint name="right_back_joint">
-    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-  </joint>
-  <actuator name="right_back_joint_actr">
-    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    <mechanicalReduction>1</mechanicalReduction>
-  </actuator>
-</transmission>
+    <xacro:if value="$(arg sim_gazebo)">
+      <hardware>
+        <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+        </hardware>
+    </xacro:if>
+    
+    <xacro:if value="$(arg sim_gz)">
+      <hardware>
+        <plugin>ign_ros2_control/IgnitionSystem</plugin>
+      </hardware>
+    </xacro:if>
 
-<transmission name="left_front_joint_tran">
-  <type>transmission_interface/SimpleTransmission</type>
-  <joint name="left_front_joint">
-    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-  </joint>
-  <actuator name="left_front_joint_actr">
-    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    <mechanicalReduction>1</mechanicalReduction>
-  </actuator>
-</transmission>
+    <joint name="arm_joint1">
+      <command_interface name="position">
+        <param name="min">-3.141593</param>
+        <param name="max">3.141593</param>
+      </command_interface>
+      <state_interface name="position">
+              <param name="initial_value">0.0</param>
+            </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
 
-<transmission name="left_back_joint_tran">
-  <type>transmission_interface/SimpleTransmission</type>
-  <joint name="left_back_joint">
-    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-  </joint>
-  <actuator name="left_back_joint_actr">
-    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    <mechanicalReduction>1</mechanicalReduction>
-  </actuator>
-</transmission>
+    <joint name="arm_joint2">
+      <command_interface name="position">
+        <param name="min">-1.22173</param>
+        <param name="max">1.22173</param>
+      </command_interface>
+      <state_interface name="position">
+              <param name="initial_value">0.0</param>
+            </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
 
-<transmission name="arm_joint1_tran">
-  <type>transmission_interface/SimpleTransmission</type>
-  <joint name="arm_joint1">
-    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-  </joint>
-  <actuator name="arm_joint1_actr">
-    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    <mechanicalReduction>1</mechanicalReduction>
-  </actuator>
-</transmission>
+    <joint name="arm_joint3">
+      <command_interface name="position">
+        <param name="min">-2.356194</param>
+        <param name="max">0.785398</param>
+      </command_interface>
+      <state_interface name="position">
+              <param name="initial_value">0.0</param>
+            </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
 
-<transmission name="arm_joint2_tran">
-  <type>transmission_interface/SimpleTransmission</type>
-  <joint name="arm_joint2">
-    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-  </joint>
-  <actuator name="arm_joint2_actr">
-    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    <mechanicalReduction>1</mechanicalReduction>
-  </actuator>
-</transmission>
+    <joint name="arm_joint4">
+      <command_interface name="position">
+        <param name="min">-0.785398</param>
+        <param name="max">0.785398</param>
+      </command_interface>
+      <state_interface name="position">
+              <param name="initial_value">0.0</param>
+            </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
 
-<transmission name="arm_joint3_tran">
-  <type>transmission_interface/SimpleTransmission</type>
-  <joint name="arm_joint3">
-    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-  </joint>
-  <actuator name="arm_joint3_actr">
-    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    <mechanicalReduction>1</mechanicalReduction>
-  </actuator>
-</transmission>
+    <joint name="arm_joint5">
+      <command_interface name="position">
+        <param name="min">0.0</param>
+        <param name="max">3.141593</param>
+      </command_interface>
+      <state_interface name="position">
+              <param name="initial_value">0.0</param>
+            </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
 
-<transmission name="arm_joint4_tran">
-  <type>transmission_interface/SimpleTransmission</type>
-  <joint name="arm_joint4">
-    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-  </joint>
-  <actuator name="arm_joint4_actr">
-    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    <mechanicalReduction>1</mechanicalReduction>
-  </actuator>
-</transmission>
-
-<transmission name="arm_joint5_tran">
-  <type>transmission_interface/SimpleTransmission</type>
-  <joint name="arm_joint5">
-    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-  </joint>
-  <actuator name="arm_joint5_actr">
-    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-    <mechanicalReduction>1</mechanicalReduction>
-  </actuator>
-</transmission>
+  </ros2_control>
 
 </robot>

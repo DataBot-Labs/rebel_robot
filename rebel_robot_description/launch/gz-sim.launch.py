@@ -39,6 +39,7 @@ def generate_launch_description():
     rviz_config_file = LaunchConfiguration('rviz_config_file')
     use_rviz = LaunchConfiguration('use_rviz')
     world = LaunchConfiguration('world')
+    control_launch = LaunchConfiguration('control_launch')
 
     # Declare the launch arguments
     declare_use_sim_time = DeclareLaunchArgument(
@@ -65,14 +66,23 @@ def generate_launch_description():
         name='world',
         default_value=default_world_path,
         description='Full path to the world model file to load')
+    
+    declare_control_launch = DeclareLaunchArgument(
+        name='control_launch',
+        default_value='True',
+        description='Launch controllers if set to true')
 
     # Subscribe to the joint states of the robot, and publish the 3D pose of each link.  
     start_robot_state_publisher_node = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
+        name='robot_state_publisher',
         parameters=[
-            {'use_sim_time': use_sim_time},
-            {'robot_description': Command(['xacro ', urdf_model])}])
+                    {'robot_description': Command( \
+                    ['xacro ', default_robot_model_path,
+                    ' sim_gazebo:=', "false",
+                    ' sim_gz:=', "true",
+                    ])}])
 
     # Publish the joint states of the robot
     start_joint_state_publisher_node = Node(
@@ -111,6 +121,12 @@ def generate_launch_description():
             '-P', spawn_pitch_val,
             '-Y', spawn_yaw_val],
         output='screen')
+    
+    # Start ROS 2 Control controllers
+    start_controllers = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(os.path.join(pkg_share, 'launch', 'control.launch.py')),
+        condition=IfCondition(LaunchConfiguration('control_launch'))
+        )
 
     # Create the launch description and populate
     ld = LaunchDescription()
@@ -121,6 +137,7 @@ def generate_launch_description():
     ld.add_action(declare_rviz_config_path)
     ld.add_action(declare_use_rviz)
     ld.add_action(declare_world)
+    ld.add_action(declare_control_launch)
     
     # Add any actions
     ld.add_action(start_gz_sim)
@@ -128,5 +145,6 @@ def generate_launch_description():
     ld.add_action(start_joint_state_publisher_node)
     ld.add_action(start_rviz_node)
     ld.add_action(spawn_entity)
-    
+    ld.add_action(start_controllers)
+
     return ld
